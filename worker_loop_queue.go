@@ -112,7 +112,7 @@ func (wq *loopQueue) reset() {
 		if w == nil {
 			break
 		}
-		w.task <- nil
+		w.NotifyStop()
 	}
 	wq.items = wq.items[:0]
 	wq.size = 0

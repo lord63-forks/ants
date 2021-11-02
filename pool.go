@@ -80,7 +80,7 @@ func (p *Pool) purgePeriodically() {
 		// may be blocking and may consume a lot of time if many workers
 		// are located on non-local CPUs.
 		for i := range expiredWorkers {
-			expiredWorkers[i].task <- nil
+			expiredWorkers[i].NotifyStop()
 			expiredWorkers[i] = nil
 		}
 

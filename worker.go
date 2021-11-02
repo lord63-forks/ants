@@ -74,3 +74,8 @@ func (w *goWorker) run() {
 		}
 	}()
 }
+
+// NotifyStop send signal to channal and notify the running worker to stop.
+func (w *goWorker) NotifyStop() {
+	w.task <- nil
+}
